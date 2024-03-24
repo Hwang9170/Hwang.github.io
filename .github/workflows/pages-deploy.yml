@@ -60,9 +60,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: "_site${{ steps.pages.outputs.base_path }}"
-<<<<<<< HEAD
-
-  deploy:
+          
+deploy:
   environment:
     name: github-pages
     url: ${{ steps.deployment.outputs.page_url }}
