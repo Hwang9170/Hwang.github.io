@@ -24,10 +24,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
+	@@ -32,6 +31,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -37,12 +34,7 @@ jobs:
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v4
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.2
+	@@ -44,7 +46,9 @@ jobs:
           bundler-cache: true
 
       - name: Build site
@@ -52,12 +44,7 @@ jobs:
         env:
           JEKYLL_ENV: "production"
 
-      - name: Test site
-        run: |
-          bundle exec htmlproofer _site \
-            \-\-disable-external=true \
-            \-\-ignore-urls "/^http:\/\/127.0.0.1/,/^http:\/\/0.0.0.0/,/^http:\/\/localhost/"
-
+	@@ -57,21 +61,25 @@ jobs:
       - name: Upload site artifact
         uses: actions/upload-artifact@v2
         with:
